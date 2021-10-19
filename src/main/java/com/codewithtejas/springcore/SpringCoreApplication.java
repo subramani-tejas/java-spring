@@ -1,22 +1,31 @@
 package com.codewithtejas.springcore;
 
 import com.codewithtejas.springcore.softwares.AppRunner;
-import com.codewithtejas.springcore.softwares.FlightSimulator;
-import com.codewithtejas.springcore.softwares.Lex;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+// @ComponentScan("com.codewithtejas.springcore")
 public class SpringCoreApplication {
 
-	// test commit
-	public static void main(String[] args) {
-		// SpringApplication.run(SpringCoreApplication.class, args);
+    // test commit
+    public static void main(String[] args) {
 
-		// Lex lex = new Lex();
-		FlightSimulator flight = new FlightSimulator();
-		AppRunner runner = new AppRunner(flight);
-		runner.runApp();
-	}
+//        Spring is responsible for creating objects
+        ConfigurableApplicationContext context = SpringApplication.run(SpringCoreApplication.class, args);
+        AppRunner runner = context.getBean(AppRunner.class);
+
+//        Programmer is responsible for creating objects (IOC)
+//        IOC container --> responsible for dependency injection
+//                      --> manages bean lifecycle
+//                      --> ex. ApplicationContext, BeanFactory
+
+//        Lex lex = new Lex();
+//        FlightSimulator flight = new FlightSimulator();
+//        AppRunner runner1 = new AppRunner(flight);
+        runner.runApp();
+    }
 
 }

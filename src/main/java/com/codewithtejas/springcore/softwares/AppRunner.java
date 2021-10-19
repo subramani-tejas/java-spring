@@ -1,21 +1,23 @@
 package com.codewithtejas.springcore.softwares;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+// Component is a class managed by Spring framework
 public class AppRunner {
-    private Lex lex;
-    private FlightSimulator flightSimulator;
 
-//    public AppRunner(Lex lex) {
-//        this.lex = lex;
-//    }
+    @Autowired
+    private Console console;
 
-    public AppRunner(FlightSimulator flightSimulator){
-        this.flightSimulator = flightSimulator;
+    public AppRunner(Console console) {
+        this.console = console;
     }
 
     public void runApp(){
-        flightSimulator.up();
-        flightSimulator.down();
-        flightSimulator.left();
-        flightSimulator.right();
+        console.up();
+        console.down();
+        console.left();
+        console.right();
     }
 }
