@@ -10,21 +10,22 @@ import org.springframework.context.annotation.ComponentScan;
 // @ComponentScan("com.codewithtejas.springcore")
 public class SpringCoreApplication {
 
-    // test commit
     public static void main(String[] args) {
 
 //        Spring is responsible for creating objects
         ConfigurableApplicationContext context = SpringApplication.run(SpringCoreApplication.class, args);
         AppRunner runner = context.getBean(AppRunner.class);
 
-//        Programmer is responsible for creating objects (IOC)
-//        IOC container --> responsible for dependency injection
-//                      --> manages bean lifecycle
-//                      --> ex. ApplicationContext, BeanFactory
+        /*
+            Programmer is responsible for creating objects (IOC)
+            IOC container --> responsible for dependency injection
+                          --> manages bean lifecycle
+                          --> ex. ApplicationContext, BeanFactory
 
-//        Lex lex = new Lex();
-//        FlightSimulator flight = new FlightSimulator();
-//        AppRunner runner1 = new AppRunner(flight);
+            Lex lex = new Lex();
+            FlightSimulator flight = new FlightSimulator();
+            AppRunner runner1 = new AppRunner(flight);
+        */
         runner.runApp();
     }
 
